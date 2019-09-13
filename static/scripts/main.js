@@ -5,12 +5,6 @@ canvas.setAttribute('height', '100');
 canvas.style.background = "#ddd";
 canvasDiv.appendChild(canvas);
 
-var canvasData = document.createElement("div");
-canvasData.setAttribute('name', 'canvasData');
-canvasData.setAttribute('display', 'false');
-canvasDiv.appendChild(canvasData);
-
-
 if (typeof G_vmlCanvasManager != 'undefined') {
     canvas = G_vmlCanvasManager.initElement(canvas);
 }
@@ -75,10 +69,21 @@ function redraw() {
     }
 }
 
+function changeRandomValue(random_value) {
+    document.getElementById("RANDOM").innerHTML = "<strong>RANDOM</strong>" + random_value;
+}
+
 function sendData() {
     let imgData = context.getImageData(0, 0, canvas.width, canvas.height);
-    canvasData.innerHTML = imgData.data;
-    console.log(imgData.data);
+
+    $.ajax({
+        type: "POST",
+        url: "http://127.0.0.1:5000/main",
+        data: imgData.data,
+        success: function(response) {
+            changeRandomValue(response.random);
+        },
+      });
 }
 
 function clearCanvas() {

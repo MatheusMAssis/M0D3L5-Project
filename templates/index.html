@@ -5,7 +5,7 @@
     <title>M0D3L5</title>
     <!-- {{ url_for('static', filename='css/styles.css') }} ../static/css/styles.css-->
     <!-- {{ url_for('static', filename='scripts/main.js') }} ../static/scripts/main.js-->
-    <link rel="stylesheet" type="text/css" href="../static/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
     <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 <body>
@@ -21,8 +21,8 @@
             </div>
             <div class="results">
                 <ul>
-                    <li><h3>     > MODELS < </h3></li>
-                    <li><a><strong>RANDOM</strong></a></li>
+                    <li><h3> > MODELS < </h3></li>
+                    <li><a id="RANDOM"><strong>RANDOM</strong>{{ random_value }}</a></li>
                     <li><a><strong>KNN</strong></a></li>
                     <li><a><strong>KMEANS</strong></a></li>
                     <li><a><strong>FEED FORWARD NN</strong></a></li>
@@ -37,6 +37,6 @@
         by: Matheus de Moncada Assis
     </div>
 
-    <script type="text/javascript" src="../static/scripts/main.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='scripts/main.js') }}"></script>
 </body>
 </html>
