@@ -7,7 +7,10 @@
 import random as rd
 import datetime
 from flask import Flask, render_template, request, jsonify
+from flask_cors import CORS
+
 app = Flask(__name__)
+CORS(app, supports_credentials=True)
 
 def generate_random():
     return rd.randint(0, 9)

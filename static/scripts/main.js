@@ -97,5 +97,3 @@ function clearCanvas() {
 function clickAndSend() {
     sendData();
 }
-
-setInterval(sendData, 5000);
