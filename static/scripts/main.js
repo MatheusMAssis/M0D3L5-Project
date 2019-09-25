@@ -79,11 +79,13 @@ function sendData() {
     $.ajax({
         type: "POST",
         url: "http://127.0.0.1:5000/main",
-        data: imgData.data,
+        data: JSON.stringify({"key": imgData.data}),
         success: function(response) {
             changeRandomValue(response.random);
         },
       });
+
+    console.log(imgData.data);
 }
 
 function clearCanvas() {

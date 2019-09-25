@@ -19,7 +19,9 @@ def generate_random():
 
 @app.route("/main", methods=["GET", "POST"])
 def index():
-    data = request.data
+    data = request.args.get("key")
+    print(data)
+    
     random_value = generate_random()
     print(random_value)
     
