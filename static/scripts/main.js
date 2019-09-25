@@ -94,4 +94,8 @@ function clearCanvas() {
     context.clearRect(0, 0, canvas.width, canvas.height)
 }
 
+function clickAndSend() {
+    sendData();
+}
+
 setInterval(sendData, 5000);
